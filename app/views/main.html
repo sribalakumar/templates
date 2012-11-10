@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta charset="${_response_encoding}">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        #{get 'moreScripts' /}
+    </head>
+    <body>
+    
+        <h1> Calling a controller variable that was rendered: ${name} </h1>
+        <p>  Calling a controller variable which is not displayed because of null ${nullvalue} </p>
+        <p> Comments are eclosed with *{ }* </P>  *{ this is a comment }*
+        <P> Scripts are enclosed with %{ }% </p>   %{ out.println('executed from script')}%
+       
+      *{ modify and run each line alone and others as comment with each of the below line in the hello tag :
+               Sample tag and the parameter passed is ${_name}!
+               Sample tag and the parameter is called implicity with _arg, ${_arg}!
+              
+        }*  
+    <p>   Here calling the hello tag ---> #{hello /} </p> 
+   *{ <p> Here calling a sample param tag ---> #{hello name:'bala'/} </p> }*
+ *{  <p> Tag calling implicityly ---> #{hello 'bala' /} </p> }*
+    
+    </body>
+</html>
